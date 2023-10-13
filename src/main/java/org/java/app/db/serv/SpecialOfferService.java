@@ -24,6 +24,10 @@ public class SpecialOfferService {
     public SpecialOffer getSpecialOfferById(int id) {
         return specialOfferRepo.findById(id).orElse(null);
     }
+    
+    public List<SpecialOffer> findByPizzaId(int pizzaId) {
+        return specialOfferRepo.findByPizzaId(pizzaId);
+    }
 
     public SpecialOffer createSpecialOffer(SpecialOffer specialOffer) {
         return specialOfferRepo.save(specialOffer);
@@ -31,6 +35,10 @@ public class SpecialOfferService {
 
     public SpecialOffer updateSpecialOffer(SpecialOffer specialOffer) {
         return specialOfferRepo.save(specialOffer);
+    }
+    
+    public void deleteById(int id) {
+        specialOfferRepo.deleteById(id);
     }
 
     public void deleteSpecialOffer(int id) {

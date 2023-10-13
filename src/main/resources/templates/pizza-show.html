@@ -45,12 +45,12 @@
 	                    <span th:text="${offerta.dataFine}"></span> con uno sconto del
 	                    <span th:text="${offerta.scontoPercentuale}"></span>%
 	                    
-	                    <a th:href="@{/pizzas/{pizzaId}/special-offer/{offerId}/edit(pizzaId=${pizza.id}, offerId=${offerta.id})}" class="btn btn-primary ms-3">Modifica</a>
+	                    <a th:href="@{/pizzas/{pizzaId}/special-offer/{offerId}/edit(pizzaId=${pizza.id}, offerId=${offerta.id})}" sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-primary ms-3">Modifica</a>
 	                </li>
 	            </ul>
 	
 	            <!-- Pulsante per creare una nuova offerta speciale -->
-	            <a th:href="@{/pizzas/{id}/special-offer/create(id=${pizza.id})}" class="btn btn-primary">Crea nuova offerta speciale</a>
+	            <a th:href="@{/pizzas/{id}/special-offer/create(id=${pizza.id})}" sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-primary">Crea nuova offerta speciale</a>
 	        </div>
 	    </div>
 	</div>

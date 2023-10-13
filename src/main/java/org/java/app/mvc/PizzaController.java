@@ -103,6 +103,10 @@ public class PizzaController {
 	 
 	 @PostMapping("/{id}/delete")
 	 public String deletePizza(@PathVariable int id) {
+		 List<SpecialOffer> specialOffers = specialOfferService.findByPizzaId(id);
+		 for (SpecialOffer specialOffer : specialOffers) {
+		        specialOfferService.deleteById(specialOffer.getId());
+		    }
 	     pizzaService.deleteById(id);
 	     return "redirect:/pizzas";
 	 }
